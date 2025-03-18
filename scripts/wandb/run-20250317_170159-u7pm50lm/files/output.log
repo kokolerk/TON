@@ -1,0 +1,112 @@
+  0%|          | 0/4748 [00:00<?, ?it/s]
+> /export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/trainer/grpo_trainer.py(359)compute_loss()
+-> prompts = [x["prompt"] for x in inputs]
+(Pdb) [{'image': 'install_12242137977860687178_6.jpg', 'problem': '<image>\nPlease generate the next move according to the UI screenshot, instruction and previous actions.\n\nInstruction: install app "Microsoft Authenticator"\n\nPrevious actions:\nStep 1: Press the home button to exit the Google Drive app.\nStep 2: Swipe up on the screen to scroll and possibly reveal the Google Play Store icon if it\'s not in view.\nStep 3: Swipe up on the screen to scroll down and search for the Google Play Store icon.\nStep 4: Click on the Google Play Store icon to open the app.\nStep 5: Click on the magnifying glass icon to access the search feature.\nStep 6: Tap the \'X\' next to the search bar to clear the current search term.', 'solution': "pyautogui.write(message='Microsoft Authenticator')", 'prompt': [{'content': [{'text': None, 'type': 'image'}, {'text': '<image>\nPlease generate the next move according to the UI screenshot, instruction and previous actions.\n\nInstruction: install app "Microsoft Authenticator"\n\nPrevious actions:\nStep 1: Press the home button to exit the Google Drive app.\nStep 2: Swipe up on the screen to scroll and possibly reveal the Google Play Store icon if it\'s not in view.\nStep 3: Swipe up on the screen to scroll down and search for the Google Play Store icon.\nStep 4: Click on the Google Play Store icon to open the app.\nStep 5: Click on the magnifying glass icon to access the search feature.\nStep 6: Tap the \'X\' next to the search bar to clear the current search term.  Output the thinking process in <think> </think> and final answer (number) in <answer> </answer> tags.', 'type': 'text'}], 'role': 'user'}]}]
+(Pdb) 1
+(Pdb) dict_keys(['image', 'problem', 'solution', 'prompt'])
+(Pdb) *** IndentationError: expected an indented block after 'for' statement on line 1
+(Pdb) *** IndentationError: expected an indented block after 'for' statement on line 1
+(Pdb) 'install_12242137977860687178_6.jpg'
+(Pdb) self = <trainer.grpo_trainer.Qwen2VLGRPOTrainer object at 0x7fda52ebe3e0>
+model = DeepSpeedEngine(
+  (module): Qwen2_5_VLForConditionalGeneration(
+    (visual): Qwen2_5_VisionTransformerPretrainedModel(
+      (patch_embed): Qwen2_5_VisionPatchEmbed(
+        (proj): Conv3d(3, 1280, kernel_size=(2, 14, 14), stride=(2, 14, 14), bias=False)
+      )
+      (rotary_pos_emb): Qwen2_5_VisionRotaryEmbedding()
+      (blocks): ModuleList(
+        (0-31): 32 x Qwen2_5_VLVisionBlock(
+          (norm1): Qwen2RMSNorm((1280,), eps=1e-06)
+          (norm2): Qwen2RMSNorm((1280,), eps=1e-06)
+          (attn): Qwen2_5_VLVisionFlashAttention2(
+            (qkv): Linear(in_features=1280, out_features=3840, bias=True)
+            (proj): Linear(in_features=1280, out_features=1280, bias=True)
+          )
+          (mlp): Qwen2_5_VLMLP(
+            (gate_proj): Linear(in_features=1280, out_features=3420, bias=True)
+            (up_proj): Linear(in_features=1280, out_features=3420, bias=True)
+            (down_proj): Linear(in_features=3420, out_features=1280, bias=True)
+            (act_fn): SiLU()
+          )
+        )
+      )
+      (merger): Qwen2_5_VLPatchMerger(
+        (ln_q): Qwen2RMSNorm((1280,), eps=1e-06)
+        (mlp): Sequential(
+          (0): Linear(in_features=5120, out_features=5120, bias=True)
+          (1): GELU(approximate='none')
+          (2): Linear(in_features=5120, out_features=2048, bias=True)
+        )
+      )
+    )
+    (model): Qwen2_5_VLModel(
+      (embed_tokens): Embedding(151936, 2048)
+      (layers): ModuleList(
+        (0-35): 36 x Qwen2_5_VLDecoderLayer(
+          (self_attn): Qwen2_5_VLFlashAttention2(
+            (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+            (k_proj): Linear(in_features=2048, out_features=256, bias=True)
+            (v_proj): Linear(in_features=2048, out_features=256, bias=True)
+            (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+            (rotary_emb): Qwen2_5_VLRotaryEmbedding()
+          )
+          (mlp): Qwen2MLP(
+            (gate_proj): Linear(in_features=2048, out_features=11008, bias=False)
+            (up_proj): Linear(in_features=2048, out_features=11008, bias=False)
+            (down_proj): Linear(in_features=11008, out_features=2048, bias=False)
+            (act_fn): SiLU()
+          )
+          (input_layernorm): Qwen2RMSNorm((2048,), eps=1e-06)
+          (post_attention_layernorm): Qwen2RMSNorm((2048,), eps=1e-06)
+        )
+      )
+      (norm): Qwen2RMSNorm((2048,), eps=1e-06)
+      (rotary_emb): Qwen2_5_VLRotaryEmbedding()
+    )
+    (lm_head): Linear(in_features=2048, out_features=151936, bias=False)
+  )
+)
+inputs = [{'image': 'install_12242137977860687178_6.jpg', 'problem': '<image>\nPlease generate the next move according to the UI screenshot, instruction and previous actions.\n\nInstruction: install app "Microsoft Authenticator"\n\nPrevious actions:\nStep 1: Press the home button to exit the Google Drive app.\nStep 2: Swipe up on the screen to scroll and possibly reveal the Google Play Store icon if it\'s not in view.\nStep 3: Swipe up on the screen to scroll down and search for the Google Play Store icon.\nStep 4: Click on the Google Play Store icon to open the app.\nStep 5: Click on the magnifying glass icon to access the search feature.\nStep 6: Tap the \'X\' next to the search bar to clear the current search term.', 'solution': "pyautogui.write(message='Microsoft Authenticator')", 'prompt': [{'content': [{'text': None, 'type': 'image'}, {'text': '<image>\nPlease generate the next move according to the UI screenshot, instruction and previous actions.\n\nInstruction: install app "Microsoft Authenticator"\n\nPrevious actions:\nStep 1: Press the home button to exit the Google Drive app.\nStep 2: Swipe up on the screen to scroll and possibly reveal the Google Play Store icon if it\'s not in view.\nStep 3: Swipe up on the screen to scroll down and search for the Google Play Store icon.\nStep 4: Click on the Google Play Store icon to open the app.\nStep 5: Click on the magnifying glass icon to access the search feature.\nStep 6: Tap the \'X\' next to the search bar to clear the current search term.  Output the thinking process in <think> </think> and final answer (number) in <answer> </answer> tags.', 'type': 'text'}], 'role': 'user'}]}]
+return_outputs = False
+num_items_in_batch = None
+(Pdb)
+  File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/grpo_gui.py", line 203, in <module>
+    main(script_args, training_args, model_args)
+  File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/grpo_gui.py", line 192, in main
+    trainer.train()
+  File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 2250, in train
+    return inner_training_loop(
+  File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 2561, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 3711, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+  File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/trainer/grpo_trainer.py", line 359, in compute_loss
+    # modified for aitw dataset
+  File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/trainer/grpo_trainer.py", line 359, in compute_loss
+    # modified for aitw dataset
+  File "/root/miniconda3/envs/digiq/lib/python3.10/bdb.py", line 90, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/root/miniconda3/envs/digiq/lib/python3.10/bdb.py", line 115, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/grpo_gui.py", line 203, in <module>
+[rank0]:     main(script_args, training_args, model_args)
+[rank0]:   File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/grpo_gui.py", line 192, in main
+[rank0]:     trainer.train()
+[rank0]:   File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 2250, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 2561, in _inner_training_loop
+[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank0]:   File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 3711, in training_step
+[rank0]:     loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+[rank0]:   File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/trainer/grpo_trainer.py", line 359, in compute_loss
+[rank0]:     # modified for aitw dataset
+[rank0]:   File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/trainer/grpo_trainer.py", line 359, in compute_loss
+[rank0]:     # modified for aitw dataset
+[rank0]:   File "/root/miniconda3/envs/digiq/lib/python3.10/bdb.py", line 90, in trace_dispatch
+[rank0]:     return self.dispatch_line(frame)
+[rank0]:   File "/root/miniconda3/envs/digiq/lib/python3.10/bdb.py", line 115, in dispatch_line
+[rank0]:     if self.quitting: raise BdbQuit
+[rank0]: bdb.BdbQuit

@@ -1,0 +1,18 @@
+{"time":"2025-03-18T11:16:14.936581735+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export3/huangdongchi/hdc_debug/R1-V/src/scripts/wandb/run-20250318_111614-8m4eakd6/logs/debug-core.log"}
+{"time":"2025-03-18T11:16:15.240533375+08:00","level":"INFO","msg":"created new stream","id":"8m4eakd6"}
+{"time":"2025-03-18T11:16:15.240583587+08:00","level":"INFO","msg":"stream: started","id":"8m4eakd6"}
+{"time":"2025-03-18T11:16:15.24065657+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"8m4eakd6"}
+{"time":"2025-03-18T11:16:15.240707981+08:00","level":"INFO","msg":"handler: started","stream_id":"8m4eakd6"}
+{"time":"2025-03-18T11:16:15.240700806+08:00","level":"INFO","msg":"sender: started","stream_id":"8m4eakd6"}
+{"time":"2025-03-18T11:16:15.835572189+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-18T11:16:15.835991687+08:00","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2025-03-18T11:20:20.580314105+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 172.16.0.15:34004->35.186.228.49:443: read: connection reset by peer"}
+{"time":"2025-03-18T11:20:46.161642962+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 172.16.0.15:35094->35.186.228.49:443: read: connection reset by peer"}
+{"time":"2025-03-18T11:27:19.764293509+08:00","level":"INFO","msg":"stream: closing","id":"8m4eakd6"}
+{"time":"2025-03-18T11:27:19.764334014+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-18T11:27:19.76517112+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-18T11:27:21.129764773+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-18T11:27:21.675244572+08:00","level":"INFO","msg":"handler: closed","stream_id":"8m4eakd6"}
+{"time":"2025-03-18T11:27:21.675298973+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"8m4eakd6"}
+{"time":"2025-03-18T11:27:21.67533967+08:00","level":"INFO","msg":"sender: closed","stream_id":"8m4eakd6"}
+{"time":"2025-03-18T11:27:21.675387165+08:00","level":"INFO","msg":"stream: closed","id":"8m4eakd6"}

@@ -1,0 +1,16 @@
+{"time":"2025-03-17T19:15:53.674816939+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export3/huangdongchi/hdc_debug/R1-V/src/scripts/wandb/run-20250317_191553-ejze8gu1/logs/debug-core.log"}
+{"time":"2025-03-17T19:15:53.880492441+08:00","level":"INFO","msg":"created new stream","id":"ejze8gu1"}
+{"time":"2025-03-17T19:15:53.880544797+08:00","level":"INFO","msg":"stream: started","id":"ejze8gu1"}
+{"time":"2025-03-17T19:15:53.880570453+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"ejze8gu1"}
+{"time":"2025-03-17T19:15:53.880589148+08:00","level":"INFO","msg":"handler: started","stream_id":"ejze8gu1"}
+{"time":"2025-03-17T19:15:53.88062828+08:00","level":"INFO","msg":"sender: started","stream_id":"ejze8gu1"}
+{"time":"2025-03-17T19:15:54.515500172+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-17T19:15:54.515921085+08:00","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2025-03-17T19:25:26.006696729+08:00","level":"INFO","msg":"stream: closing","id":"ejze8gu1"}
+{"time":"2025-03-17T19:25:26.006726831+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-17T19:25:26.007796939+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-17T19:25:27.26227413+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-17T19:25:27.82252635+08:00","level":"INFO","msg":"handler: closed","stream_id":"ejze8gu1"}
+{"time":"2025-03-17T19:25:27.82257105+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ejze8gu1"}
+{"time":"2025-03-17T19:25:27.822599098+08:00","level":"INFO","msg":"sender: closed","stream_id":"ejze8gu1"}
+{"time":"2025-03-17T19:25:27.822652155+08:00","level":"INFO","msg":"stream: closed","id":"ejze8gu1"}

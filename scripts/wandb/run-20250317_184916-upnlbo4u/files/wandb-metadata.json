@@ -1,0 +1,133 @@
+{
+  "os":  "Linux-5.4.0-169-generic-x86_64-with-glibc2.31",
+  "python":  "CPython 3.10.0",
+  "startedAt":  "2025-03-17T10:49:16.869899Z",
+  "args":  [
+    "--output_dir",
+    "/export3/huangdongchi/hdc_debug/R1-V/results",
+    "--model_name_or_path",
+    "/export3/huangdongchi/hdc_debug/model_jq/Qwen2.5-VL-3B-Instruct",
+    "--dataset_name",
+    "/export3/huangdongchi/hdc_debug/R1-V/images/aitw_1",
+    "--max_prompt_length",
+    "4096",
+    "--max_completion_length",
+    "2048",
+    "--per_device_train_batch_size",
+    "1",
+    "--gradient_accumulation_steps",
+    "4",
+    "--learning_rate",
+    "1e-6",
+    "--lr_scheduler_type",
+    "constant",
+    "--logging_steps",
+    "1",
+    "--bf16",
+    "true",
+    "--gradient_checkpointing",
+    "true",
+    "--attn_implementation",
+    "flash_attention_2",
+    "--min_pixels",
+    "3136",
+    "--max_pixels",
+    "501760",
+    "--num_train_epochs",
+    "2",
+    "--run_name",
+    "gui_agent_qwen25vl",
+    "--save_steps",
+    "200",
+    "--save_total_limit",
+    "3",
+    "--save_only_model",
+    "true",
+    "--report_to",
+    "wandb",
+    "--temperature",
+    "1.0",
+    "--num_generations",
+    "8",
+    "--deepspeed",
+    "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/local_scripts/zero1_no_optimizer.json"
+  ],
+  "program":  "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/grpo_gui.py",
+  "codePath":  "src/r1-v/src/open_r1/grpo_gui.py",
+  "git":  {
+    "remote":  "https://github.com/Deep-Agent/R1-V.git",
+    "commit":  "bbbbe3dc1ea6a74ce31c118c1722b1ee73e372ba"
+  },
+  "email":  "wjqkoko@foxmail.com",
+  "root":  "/export3/huangdongchi/hdc_debug/R1-V/src/scripts",
+  "host":  "20250106-instance",
+  "executable":  "/root/miniconda3/envs/digiq/bin/python",
+  "cpu_count":  92,
+  "cpu_count_logical":  184,
+  "gpu":  "NVIDIA H20",
+  "gpu_count":  8,
+  "disk":  {
+    "/":  {
+      "total":  "528104091648",
+      "used":  "83541442560"
+    }
+  },
+  "memory":  {
+    "total":  "2058807382016"
+  },
+  "cpu":  {
+    "count":  92,
+    "countLogical":  184
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA H20",
+      "memoryTotal":  "102625181696",
+      "cudaCores":  9984,
+      "architecture":  "Hopper"
+    },
+    {
+      "name":  "NVIDIA H20",
+      "memoryTotal":  "102625181696",
+      "cudaCores":  9984,
+      "architecture":  "Hopper"
+    },
+    {
+      "name":  "NVIDIA H20",
+      "memoryTotal":  "102625181696",
+      "cudaCores":  9984,
+      "architecture":  "Hopper"
+    },
+    {
+      "name":  "NVIDIA H20",
+      "memoryTotal":  "102625181696",
+      "cudaCores":  9984,
+      "architecture":  "Hopper"
+    },
+    {
+      "name":  "NVIDIA H20",
+      "memoryTotal":  "102625181696",
+      "cudaCores":  9984,
+      "architecture":  "Hopper"
+    },
+    {
+      "name":  "NVIDIA H20",
+      "memoryTotal":  "102625181696",
+      "cudaCores":  9984,
+      "architecture":  "Hopper"
+    },
+    {
+      "name":  "NVIDIA H20",
+      "memoryTotal":  "102625181696",
+      "cudaCores":  9984,
+      "architecture":  "Hopper"
+    },
+    {
+      "name":  "NVIDIA H20",
+      "memoryTotal":  "102625181696",
+      "cudaCores":  9984,
+      "architecture":  "Hopper"
+    }
+  ],
+  "cudaVersion":  "12.5"
+}

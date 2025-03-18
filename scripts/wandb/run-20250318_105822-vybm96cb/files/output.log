@@ -1,0 +1,13 @@
+  0%|          | 0/2374 [00:00<?, ?it/s]/root/miniconda3/envs/digiq/lib/python3.10/site-packages/torch/utils/checkpoint.py:87: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+  0%|          | 9/2374 [07:40<31:18:44, 47.66s/it]
+{'loss': 0.0, 'grad_norm': 0.0, 'learning_rate': 1e-06, 'completion_length': 62.3125, 'rewards/accuracy_reward': 0.0, 'reward': 0.0, 'reward_std': 0.0, 'kl': 0.0, 'epoch': 0.0}
+{'loss': 0.0, 'grad_norm': 0.0, 'learning_rate': 1e-06, 'completion_length': 62.984375, 'rewards/accuracy_reward': 0.0, 'reward': 0.0, 'reward_std': 0.0, 'kl': 0.0, 'epoch': 0.0}
+{'loss': 0.0, 'grad_norm': 0.0, 'learning_rate': 1e-06, 'completion_length': 58.625, 'rewards/accuracy_reward': 0.0, 'reward': 0.0, 'reward_std': 0.0, 'kl': 0.0, 'epoch': 0.0}
+{'loss': 0.0, 'grad_norm': 0.0, 'learning_rate': 1e-06, 'completion_length': 71.40625, 'rewards/accuracy_reward': 0.0, 'reward': 0.0, 'reward_std': 0.0, 'kl': 0.0, 'epoch': 0.0}
+{'loss': 0.0, 'grad_norm': 0.0, 'learning_rate': 1e-06, 'completion_length': 59.578125, 'rewards/accuracy_reward': 0.0, 'reward': 0.0, 'reward_std': 0.0, 'kl': 0.0, 'epoch': 0.0}
+{'loss': 0.0, 'grad_norm': 0.0, 'learning_rate': 1e-06, 'completion_length': 61.9375, 'rewards/accuracy_reward': 0.0, 'reward': 0.0, 'reward_std': 0.0, 'kl': 0.0, 'epoch': 0.01}
+{'loss': 0.0, 'grad_norm': 0.0, 'learning_rate': 1e-06, 'completion_length': 69.7890625, 'rewards/accuracy_reward': 0.0, 'reward': 0.0, 'reward_std': 0.0, 'kl': 0.0, 'epoch': 0.01}
+{'loss': 0.0, 'grad_norm': 0.0, 'learning_rate': 1e-06, 'completion_length': 63.7578125, 'rewards/accuracy_reward': 0.0, 'reward': 0.0, 'reward_std': 0.0, 'kl': 0.0, 'epoch': 0.01}
+{'loss': 0.0, 'grad_norm': 0.0, 'learning_rate': 1e-06, 'completion_length': 67.671875, 'rewards/accuracy_reward': 0.0, 'reward': 0.0, 'reward_std': 0.0, 'kl': 0.0, 'epoch': 0.01}

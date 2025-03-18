@@ -1,0 +1,32 @@
+  0%|          | 0/4748 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/grpo_gui.py", line 203, in <module>
+    main(script_args, training_args, model_args)
+  File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/grpo_gui.py", line 192, in main
+    trainer.train()
+  File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 2250, in train
+    return inner_training_loop(
+  File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 2561, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 3711, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+  File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/trainer/grpo_trainer.py", line 362, in compute_loss
+    prompts = [x["prompt"] for x in inputs]
+  File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/trainer/grpo_trainer.py", line 362, in <listcomp>
+    prompts = [x["prompt"] for x in inputs]
+TypeError: string indices must be integers
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/grpo_gui.py", line 203, in <module>
+[rank0]:     main(script_args, training_args, model_args)
+[rank0]:   File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/grpo_gui.py", line 192, in main
+[rank0]:     trainer.train()
+[rank0]:   File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 2250, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 2561, in _inner_training_loop
+[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank0]:   File "/root/miniconda3/envs/digiq/lib/python3.10/site-packages/transformers/trainer.py", line 3711, in training_step
+[rank0]:     loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+[rank0]:   File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/trainer/grpo_trainer.py", line 362, in compute_loss
+[rank0]:     prompts = [x["prompt"] for x in inputs]
+[rank0]:   File "/export3/huangdongchi/hdc_debug/R1-V/src/r1-v/src/open_r1/trainer/grpo_trainer.py", line 362, in <listcomp>
+[rank0]:     prompts = [x["prompt"] for x in inputs]
+[rank0]: TypeError: string indices must be integers
