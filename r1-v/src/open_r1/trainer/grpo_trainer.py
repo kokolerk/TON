@@ -360,6 +360,10 @@ class Qwen2VLGRPOTrainer(Trainer):
         
         prompts = [x["prompt"] for x in inputs]
         prompts_text = [maybe_apply_chat_template(example, self.processing_class)["prompt"] for example in inputs]
+        # modified  the self-plan mode
+        recipient_text = "<|im_start|>assistant<|recipient|>"
+        prompts_text = [prompt + recipient_text for prompt in prompts_text]
+        
         images = [x["image"] for x in inputs] # this is the path
         images = [Image.open(image_path) for image_path in images] # open as image object
         

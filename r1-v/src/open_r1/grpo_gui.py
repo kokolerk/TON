@@ -25,7 +25,7 @@ from math_verify import parse, verify
 from trainer import Qwen2VLGRPOTrainer, Qwen2VLGRPOVLLMTrainer, Qwen2VLGRPOVLLMTrainerModified
 from trl import GRPOConfig, GRPOTrainer, ModelConfig, ScriptArguments, TrlParser, get_peft_config
 
-from system_prompt.constant import agent_system_message
+from system_prompt.constant import agent_system_message,chat_template, grounding_system_message, until, user_instruction
 
 @dataclass
 class GRPOScriptArguments(ScriptArguments):
@@ -52,6 +52,34 @@ class GRPOScriptArguments(ScriptArguments):
     )
 
 
+def action_reward(action1, action2):
+    action1 = action1.strip()
+    action2 = action2.strip()
+    action1_match = re.search(r'(.+?)\((.+?)\)', action1)
+    action2_match = re.search(r'(.+?)\((.+?)\)', action2)
+    # breakpoint()
+    # 提取类型和参数
+    action1_type = action1_match.group(1)  # 括号前部分，如 "pyautogui.click"
+    action1_params = action1_match.group(2)  # 括号内部分，如 "x=0.364, y=0.135"
+    
+    action2_type = action2_match.group(1)
+    action2_params = action2_match.group(2)
+    
+    # print(f"动作1类型: {action1_type}, 参数: {action1_params}")
+    # print(f"动作2类型: {action2_type}, 参数: {action2_params}")
+    # 比较类型
+    if action1_type == action2_type:
+        reward = 0.5  # 类型相同，获得基础分数
+        if action1_params == action2_params:
+            reward += 0.5
+        
+        return reward
+    else:
+        return 0.0  # 类型不同，无奖励    
+    
+    
+    
+
 def accuracy_reward(completions, solution, **kwargs):
     """Reward function that checks if the completion is correct using either symbolic verification or exact string matching."""
     contents = [completion[0]["content"] for completion in completions]
@@ -60,7 +88,7 @@ def accuracy_reward(completions, solution, **kwargs):
     for content, sol in zip(contents, solution):
         # breakpoint()
         reward = 0.0
-        print("content: ", content, "sol: ", sol)
+        # print("content: ", content, "sol: ", sol)
         # modifeid to remove the symbolic verification
         # Try symbolic verification first
         # try:
@@ -78,12 +106,13 @@ def accuracy_reward(completions, solution, **kwargs):
                 ground_truth = sol_match.group(1).strip() if sol_match else sol.strip()
                 
                 # Extract answer from content if it has think/answer tags
-                content_match = re.search(r'<answer>(.*?)</answer>', content)
-                student_answer = content_match.group(1).strip() if content_match else content.strip()
                 
+                content_match = re.search(r'assistantos(.*)', content, re.DOTALL)
+                student_answer = content_match.group(1).strip() if content_match else content.strip()
+                # print("student_answer:", student_answer)
                 # Compare the extracted answers
-                if student_answer == ground_truth:
-                    reward = 1.0
+                # if student_answer == ground_truth:
+                reward = action_reward(student_answer, ground_truth)
             except Exception:
                 pass  # Keep reward as 0.0 if both methods fail
                 
@@ -97,14 +126,14 @@ def accuracy_reward(completions, solution, **kwargs):
                 f.write(f"Solution: {sol}\n")
     return rewards
 
-
-def format_reward(completions, **kwargs):
+def format_reward(completions, solution, **kwargs):
     """Reward function that checks if the completion has a specific format."""
-    # pattern = r"<think>.*?</think>\s*<answer>.*?</answer>"
-    pattern = r"<answer>.*?</answer>"
+    # pattern = r"<<answer>.*?</answer>"
+    pattern = r"content:\s*(.*?)\s*Thought:\s*(.*?)\s*Action:\s*(.*?)\s*assistantos\s*(.*)"
     completion_contents = [completion[0]["content"] for completion in completions]
     matches = [re.fullmatch(pattern, content, re.DOTALL) for content in completion_contents]
-    return [1.0 if match else 0.0 for match in matches]
+    # breakpoint()
+    return [0.5 if match else 0.0 for match in matches]
 
 
 reward_funcs_registry = {
@@ -150,20 +179,6 @@ def main(script_args, training_args, model_args):
                 {"role": "user", "content": example["problem"]},
             ],
         }
-
-    # def make_conversation_image(example):
-    #     return {
-    #         "prompt": [
-    #             {"role": "system", "content": [{"type": "text", "text": SYSTEM_PROMPT}]},
-    #             {
-    #                 "role": "user",
-    #                 "content": [
-    #                     {"type": "image"},
-    #                     {"type": "text", "text": example["problem"]},
-    #                 ],
-    #             },
-    #         ],
-    #     }
 
     QUESTION_TEMPLATE = "{Question}  Output the thinking process in <think> </think> and final answer(functions) in <answer> </answer> tags."
 

@@ -15,8 +15,9 @@ def load_data_aitw_l1(base_path):
 def aitw_to_dataset(json_data):
     # 将 aitw-l1.json 数据转换为另一种格式的数据集
     dataset = []
+    i = 0
     for item in json_data:
-        breakpoint()
+        # breakpoint()
         local_dir ='/export3/huangdongchi/hdc_debug/model_jq/datasets_aguvis/aitw-v1/images'
         image = os.path.join(local_dir, item['image'])
         # image = item['image']
@@ -32,6 +33,9 @@ def aitw_to_dataset(json_data):
                 'problem': prompt, # instruct + previous actions
                 'solution': solution # pyautogui.click(x=0.963, y=0.064
             })
+        i += 1
+        if i > 100:
+            break
     # breakpoint()
     return dataset
 
@@ -40,9 +44,16 @@ def save_dataset(dataset, save_path):
     df = pd.DataFrame(dataset)
     df.to_parquet(save_path, index=False)
 
+def save_dataset_jsonl(dataset, save_path):
+    # 将数据集存储到指定路径的 JSON 文件中
+    with open(save_path, 'w') as f:
+        for entry in dataset:
+            f.write(json.dumps(entry) + '\n')
 # 示例调用
 base_path = '/export3/huangdongchi/hdc_debug/model_jq/datasets_aguvis'
 json_data = load_data_aitw_l1(base_path)
 dataset = aitw_to_dataset(json_data)
-save_path = '/export3/huangdongchi/hdc_debug/R1-V/images/aitw/aitw-l1-v1.parquet'
-save_dataset(dataset, save_path)
+# save_path = '/export3/huangdongchi/hdc_debug/R1-V/images/aitw/aitw-l1-v1-2000.parquet'
+# save_dataset(dataset, save_path)
+save_path = '/export3/huangdongchi/hdc_debug/R1-V/images/aitw/aitw-l1-v1-100.jsonl'
+save_dataset_jsonl(dataset, save_path)
