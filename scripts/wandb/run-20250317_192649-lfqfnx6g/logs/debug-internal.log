@@ -1,8 +1,0 @@
-{"time":"2025-03-17T19:26:50.156508379+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export3/huangdongchi/hdc_debug/R1-V/src/scripts/wandb/run-20250317_192649-lfqfnx6g/logs/debug-core.log"}
-{"time":"2025-03-17T19:26:50.964364214+08:00","level":"INFO","msg":"created new stream","id":"lfqfnx6g"}
-{"time":"2025-03-17T19:26:50.964418734+08:00","level":"INFO","msg":"stream: started","id":"lfqfnx6g"}
-{"time":"2025-03-17T19:26:50.964442985+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"lfqfnx6g"}
-{"time":"2025-03-17T19:26:50.964468406+08:00","level":"INFO","msg":"sender: started","stream_id":"lfqfnx6g"}
-{"time":"2025-03-17T19:26:50.964515329+08:00","level":"INFO","msg":"handler: started","stream_id":"lfqfnx6g"}
-{"time":"2025-03-17T19:26:51.666033896+08:00","level":"INFO","msg":"Starting system monitor"}
-{"time":"2025-03-17T19:26:51.666430545+08:00","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}

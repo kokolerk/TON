@@ -18,7 +18,7 @@ def aitw_to_dataset(json_data):
     i = 0
     for item in json_data:
         # breakpoint()
-        local_dir ='/export3/huangdongchi/hdc_debug/model_jq/datasets_aguvis/aitw-v1/images'
+        local_dir ='/datasets_aguvis/aitw-v1/images'
         image = os.path.join(local_dir, item['image'])
         # image = item['image']
         conversations = item['conversations']
@@ -50,10 +50,10 @@ def save_dataset_jsonl(dataset, save_path):
         for entry in dataset:
             f.write(json.dumps(entry) + '\n')
 # 示例调用
-base_path = '/export3/huangdongchi/hdc_debug/model_jq/datasets_aguvis'
+base_path = '/datasets_aguvis'
 json_data = load_data_aitw_l1(base_path)
 dataset = aitw_to_dataset(json_data)
-# save_path = '/export3/huangdongchi/hdc_debug/R1-V/images/aitw/aitw-l1-v1-2000.parquet'
+# save_path = 'aitw-l1-v1-2000.parquet'
 # save_dataset(dataset, save_path)
-save_path = '/export3/huangdongchi/hdc_debug/R1-V/images/aitw/aitw-l1-v1-100.jsonl'
+save_path = 'aitw/aitw-l1-v1-100.jsonl'
 save_dataset_jsonl(dataset, save_path)

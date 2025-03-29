@@ -1,9 +1,0 @@
-  0%|          | 0/4748 [00:00<?, ?it/s]/root/miniconda3/envs/digiq/lib/python3.10/site-packages/torch/utils/checkpoint.py:87: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
-  warnings.warn(
-`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
-/root/miniconda3/envs/digiq/lib/python3.10/site-packages/torch/utils/checkpoint.py:87: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
-  warnings.warn(
-  0%|          | 3/4748 [01:53<49:47:37, 37.78s/it]
-{'loss': -0.0, 'grad_norm': 13.002172470092773, 'learning_rate': 1e-06, 'completion_length': 48.875, 'rewards/accuracy_reward': 0.0, 'rewards/format_reward': 0.5, 'reward': 0.5, 'reward_std': 0.48763322830200195, 'kl': 0.0, 'epoch': 0.0}
-{'loss': 0.0, 'grad_norm': 9.450343132019043, 'learning_rate': 1e-06, 'completion_length': 53.25, 'rewards/accuracy_reward': 0.0, 'rewards/format_reward': 0.546875, 'reward': 0.546875, 'reward_std': 0.48080335557460785, 'kl': 0.0011510848999023438, 'epoch': 0.0}
-{'loss': 0.0001, 'grad_norm': 14.8137788772583, 'learning_rate': 1e-06, 'completion_length': 64.5625, 'rewards/accuracy_reward': 0.0, 'rewards/format_reward': 0.828125, 'reward': 0.828125, 'reward_std': 0.36403755843639374, 'kl': 0.0027103424072265625, 'epoch': 0.0}
