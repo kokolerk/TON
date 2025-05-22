@@ -44,7 +44,7 @@ Reinforcement Learning (RL) has proven to be an effective post-training strategy
 
 Experimental results show that *TON* can *reduce the completion length by up to **90%** compared to vanilla GRPO, without sacrificing performance or even improving it*. Further evaluations across diverse vision-language tasks—covering a range of reasoning difficulties under both 3B and 7B models—consistently reveal that the *model progressively learns to bypass unnecessary reasoning steps as training advances*. These findings shed light on the path toward human-like reasoning patterns in reinforcement learning approaches.
 
-<img src="./assets/teaser.pdf" width="800" />
+<img src="./assets/diagram.png" width="600" />
 
 
 
