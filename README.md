@@ -33,7 +33,7 @@
   <a href="#Evaluation">Evaluation</a>/
 </p>
 </div>
-TL;DR: We propose TON (**T**hink-**O**r-**N**ot), an effcient policy optimization method for vision-language models.
+TL;DR: We propose TON (Think-Or-Not), an efficient policy optimization method for vision-language models.
 
 # <img src="./assets/abstract.png" width="40" />Abstract
 
