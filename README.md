@@ -24,8 +24,6 @@
     </a>
     <br />
 </p>
-
-
 <div align="center">
 <p align="center">
   <a href="#Abstract">Abstract</a>/
@@ -56,7 +54,7 @@ Experimental results show that *TON* can *reduce the completion length by up to 
 
 # <img src="./pics/resource.png" width="40" />Resources 
 
-We will release our training data and the RL model, See:
+We will release our training data and the RL model both in [huggingface](https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b) and [modelscope](https://modelscope.cn/collections/TON-e8836d13bd564e), See:
 
 - Supported Training Datasets
 
@@ -80,62 +78,59 @@ We will release our training data and the RL model, See:
 
 [🤗 TON-7B-Math](https://modelscope.cn/collections/TON-e8836d13bd564e)
 
-- Supportted Evaluations
+- Supported Evaluations
 
-1. SuperCLEVR-200: item Counting Problems
+1. SuperCLEVR-200: Item Counting Problems
 2. AITZ: Mobile Agent Navigation Problems
 3. GeoQA-Test: Geometry Reasoning
 
 ## <img src="./pics/training.png" width="40" />Training
 
-1. set up the envrionmets:
+1. Set up the environments:
 
 ```
-conda create -n r1-v python=3.11 
-conda activate r1-v
-
-bash setup.sh
+conda create -n r1-v python=3.11conda activate r1-vbash setup.sh
 ```
 
-2. download the training datasets:
+1. Download the training datasets:
 
 We submit our SFT and GRPO stage raw data in [TON](https://modelscope.cn/collections/TON-e8836d13bd564e). Otherwise, we provide the data format transform source code. Take the AITZ dataset for example.
 
-- first, download the data
+- First, download the data
 
-```python
+```
 modelscope download --dataset wjqkoko/TON-AITZ-SFT ----local_dir <your local path>
 ```
 
-then unzip the dataset `unzip android_in_the_zoo.zip`
+Then unzip the dataset by run:  `unzip android_in_the_zoo.zip`
 
-- second, change the jsons in different directory to one single json
+- Second, change the JSONs in different directories to a single JSON
 
-```python
+```
 python src/eval/aitz_evaluate/process_data.py
 ```
 
-- third, change the process data to the SFT format or the GRPO format
+- Third, change the process data to the SFT format or the GRPO format
 
-```python
+```
 python src/eval/aitz_evaluate/sft_grpo_data.py
 ```
 
-We also provide the aitz_sft.json in the dataset, you can directly use it for SFT and only transfrom the data to the grpo format.
+We also provide the aitz_sft.json in the dataset, you can directly use it for SFT and only transform the data to the GRP format.
 
-3. download the model:
+1. Download the model:
 
-Our repo currently support Qwen2.5-VL-3B/7B, which support the mobile use and computer use functions.
+Our repo currently supports Qwen2.5-VL-3B/7B, which supports the mobile use and computer use functions.
 
-We also provide the our models which have been well-trained on Count, AITZ and GeoQA in [TON](https://modelscope.cn/collections/TON-e8836d13bd564e).
+We also provide our models, which have been well-trained on Count, AITZ, and GeoQA in [TON](https://modelscope.cn/collections/TON-e8836d13bd564e).
 
-4. train the model with GRPO
+1. Train the model with GRPO
 
-The training command is as following, you need to modify it by your local model path (QWEN_PATH), dataset path (HF_DATASET), and output save path(OUTPUT_DIR). We also support wandb to moniter the training process by setting the run name (RUN_NAME).
+The training command is as follows: you need to modify it by your local model path (QWEN_PATH), dataset path (HF_DATASET), and output save path(OUTPUT_DIR). We also support wandb to monitor the training process by setting the run name (RUN_NAME).
 
 For Counting/GeoQA
 
-```python
+```
 sh src/scripts/run_grpo_vllm_qwen25vl.sh
 ```
 
@@ -145,10 +140,9 @@ For AITZ
 sh src/scripts/run_grpo_vllm_qwen25vl_gui.sh
 ```
 
-> [!NOTE] 
+> [!NOTE]
 >
-> 1. To reproduce the result, keep the per_device_train_batch_size to 1 for now, as there is a revealed bug about batched training. As we follow the code from R1-V, as detailed in the [reproduction report](https://github.com/Deep-Agent/R1-V/issues/4#issuecomment-2633348354) here. 
-> 2. If you meet **OOM Error**, you can try reduce `--num_generations`
+> 1. If you meet **OOM Error**, you can try reduce `-num_generations`
 
 ## <img src="./pics/eval.png" width="40" />Evaluation
 
@@ -156,19 +150,19 @@ sh src/scripts/run_grpo_vllm_qwen25vl_gui.sh
 
 <img src="./pics/results_2.png" width="800" />
 
-We currrently give the evalutaion codes of the training datasets on src/scripts/llama_factory_test.sh. 
+We currently give the evaluation codes of the training datasets on src/scripts/llama_factory_test.sh.
 
-You need to first download the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) and change config the environments following its readme.
+You need to first download the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) and then configure the environments following its readme.
 
-You need to first modify the AITZ raw data to the sft format following the same steps previously, then edit the dataset name and path in dataset_fomat.json.
+You need to first modify the AITZ raw data to the sft format following the same steps previously, then edit the dataset name and path in dataset_format.json.
 
-You can test your model by run to generate predicted results of AITZ:
+You can test your model by running it to generate predicted results of AITZ:
 
 ```
 sh src/scripts/llama_factory_test.sh
 ```
 
-You can test your output results by run to evaluate code:
+You can test your output results by running the following code:
 
 ```
 python src/eval/aitz_evaluate/test_qwen25vl_aitz_from_json.py
@@ -178,19 +172,19 @@ python src/eval/aitz_evaluate/test_qwen25vl_aitz_from_json.py
 
 <img src="./pics/results_1.png" width="800" />
 
-To evalute on GeoQA and counting, you need to first transform the data format by running the code:
+To evaluate on GeoQA and counting, you need to first transform the data format by running the code:
 
 ```
 python src/eval/parquet_data.py
 ```
 
-1. You can test your model by run to evaluate math:
+1. You can test your model by running it to evaluate math:
 
 ```
 python src/eval/test_qwen25vl_geoqa.py
 ```
 
-2. You can test your model by run to evaluate counting:
+2. You can test your model by running it to evaluate counting:
 
 ```
 python src/eval/test_qwen25vl_counting_superclevr.py
