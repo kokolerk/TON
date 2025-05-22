@@ -33,7 +33,7 @@
   <a href="#Evaluation">Evaluation</a>/
 </p>
 </div>
-TL;DR: We propose TON (Think-Or-Not), an efficient policy optimization method for vision-language models.
+TL;DR: We propose TON (**T**hink-**O**r-**N**ot), an effcient policy optimization method for vision-language models.
 
 # <img src="./assets/abstract.png" width="40" />Abstract
 
@@ -44,7 +44,7 @@ Reinforcement Learning (RL) has proven to be an effective post-training strategy
 
 Experimental results show that *TON* can *reduce the completion length by up to **90%** compared to vanilla GRPO, without sacrificing performance or even improving it*. Further evaluations across diverse vision-language tasks—covering a range of reasoning difficulties under both 3B and 7B models—consistently reveal that the *model progressively learns to bypass unnecessary reasoning steps as training advances*. These findings shed light on the path toward human-like reasoning patterns in reinforcement learning approaches.
 
-<img src="./assets/diagram.png" width="600" />
+<img src="./assets/teaser.png" width="600" />
 
 
 
