@@ -33,50 +33,49 @@
   <a href="#Evaluation">Evaluation</a>/
 </p>
 </div>
+TL;DR: We propose TON (**T**hink-**O**r-**N**ot), an effcient policy optimization method for vision-language models.
 
-# <img src="./pics/abstract.png" width="40" />Abstract
+# <img src="./assets/abstract.png" width="40" />Abstract
 
-Reinforcement Learning (RL) has proven to be an effective post-training strategy for enhancing reasoning in vision–language models (VLMs). Group Relative Policy Optimization (GRPO) is a recent prominent method that encourages models to generate complete reasoning traces before answering, leading to increased token usage and computational cost.Inspired by the human-like thinking process—where people skip reasoning for easy questions but think carefully when needed—we explore how to enable VLMs to first decide *when reasoning is necessary*. To realize this, we propose *TON*, a two-stage training strategy:
+Reinforcement Learning (RL) has proven to be an effective post-training strategy for enhancing reasoning in vision–language models (VLMs). Group Relative Policy Optimization (GRPO) is a recent prominent method that encourages models to generate complete reasoning traces before answering, leading to increased token usage and computational cost. Inspired by the human-like thinking process—where people skip reasoning for easy questions but think carefully when needed—we explore how to enable VLMs to first decide *when reasoning is necessary*. To realize this, we propose *TON*, a two-stage training strategy:
 
 1. **(i)** A supervised fine-tuning (SFT) stage with a simple yet effective “**thought dropout**” operation, where reasoning traces are randomly replaced with empty thoughts. This introduces a think-or-not format that serves as a cold start for selective reasoning.
 2. **(ii)** A GRPO stage that enables the model to freely explore when to think or not, while maximizing task-aware outcome rewards.
 
 Experimental results show that *TON* can *reduce the completion length by up to **90%** compared to vanilla GRPO, without sacrificing performance or even improving it*. Further evaluations across diverse vision-language tasks—covering a range of reasoning difficulties under both 3B and 7B models—consistently reveal that the *model progressively learns to bypass unnecessary reasoning steps as training advances*. These findings shed light on the path toward human-like reasoning patterns in reinforcement learning approaches.
 
-<img src="./pics/diagram.png" width="800" />
+<img src="./assets/teaser.pdf" width="800" />
 
 
 
-# <img src="./pics/update.png" width="40" />Updates
+# <img src="./assets/update.png" width="40" />Updates
 
 - 2025-05-19: We update the next-version code, model and data source.
 - 2025-03-28: We release the TON repo.
 
-# <img src="./pics/resource.png" width="40" />Resources 
+# <img src="./assets/resource.png" width="40" />Resources 
 
-We will release our training data and the RL model both in [huggingface](https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b) and [modelscope](https://modelscope.cn/collections/TON-e8836d13bd564e), See:
+## Models
 
-- Supported Training Datasets
+We release our models both in huggingface and modelscope.
 
-[🤗 AITZ-SFT](https://modelscope.cn/collections/TON-e8836d13bd564e)
+|                | huggingface                                                  | Modelscope                                                   |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 🤗 TON-3B-AITZ  | [TON-3B-AITZ](https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b) | [TON-3B-AITZ](https://modelscope.cn/collections/TON-e8836d13bd564e) |
+| 🤗 TON-3B-CLEVR | [TON-3B-CLEVR](https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b) | [TON-3B-CLEVR](https://modelscope.cn/collections/TON-e8836d13bd564e) |
+| 🤗 TON-3B-Math  | [TON-3B-Math](https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b) | [TON-3B-Math](https://modelscope.cn/collections/TON-e8836d13bd564e) |
+| 🤗 TON-7B-Math  | [TON-7B-Math](https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b) | [TON-7B-Math](https://modelscope.cn/collections/TON-e8836d13bd564e) |
 
-[🤗 AITZ-GRPO](https://modelscope.cn/collections/TON-e8836d13bd564e)
+## Datasets
 
-[🤗 Math-SFT](https://modelscope.cn/collections/TON-e8836d13bd564e)
+We release our training datasets both in huggingface and modelscope.
 
-[🤗 Math-GRPO](https://modelscope.cn/collections/TON-e8836d13bd564e)
-
-[🤗 Count-GRPO](https://huggingface.co/datasets/leonardPKU/clevr_cogen_a_train)
-
-- Supportted Models
-
-[🤗 TON-3B-AITZ](https://modelscope.cn/collections/TON-e8836d13bd564e)
-
-[🤗 TON-3B-Math](https://modelscope.cn/collections/TON-e8836d13bd564e)
-
-[🤗 TON-3B-CLEVR](https://modelscope.cn/collections/TON-e8836d13bd564e)
-
-[🤗 TON-7B-Math](https://modelscope.cn/collections/TON-e8836d13bd564e)
+|             | huggingface                                                  | Modelscope                                                   |
+| ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 🤗 AITZ-SFT  | [AITZ-SFT](https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b) | [AITZ-SFT](https://modelscope.cn/collections/TON-e8836d13bd564e) |
+| 🤗 AITZ-GRPO | [AITZ-GRPO](https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b) | [AITZ-GRPO](https://modelscope.cn/collections/TON-e8836d13bd564e) |
+| 🤗 Math-SFT  | [Math-SFT](https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b) | [Math-SFT](https://modelscope.cn/collections/TON-e8836d13bd564e) |
+| 🤗 Math-GRPO | [Math-GRPO](https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b) | [Math-GRPO](https://modelscope.cn/collections/TON-e8836d13bd564e) |
 
 - Supported Evaluations
 
@@ -84,17 +83,27 @@ We will release our training data and the RL model both in [huggingface](https:/
 2. AITZ: Mobile Agent Navigation Problems
 3. GeoQA-Test: Geometry Reasoning
 
-## <img src="./pics/training.png" width="40" />Training
+## <img src="./assets/training.png" width="40" />Training
+
+The comparsion of the completion length and skip think ratio during the training process between our TON and vanilla GRPO is as follows: 
+
+<img src="./assets/length.png" width="600" />
+
+<img src="./assets/skip.png" width="600" />
 
 1. Set up the environments:
 
 ```
-conda create -n r1-v python=3.11conda activate r1-vbash setup.sh
+conda create -n r1-v python=3.11
+
+conda activate r1-v
+
+bash setup.sh
 ```
 
 1. Download the training datasets:
 
-We submit our SFT and GRPO stage raw data in [TON](https://modelscope.cn/collections/TON-e8836d13bd564e). Otherwise, we provide the data format transform source code. Take the AITZ dataset for example.
+We submit our SFT and GRPO stage raw data in [TON](https://modelscope.cn/collections/TON-e8836d13bd564e).  Take the AITZ dataset for example.
 
 - First, download the data
 
@@ -144,11 +153,11 @@ sh src/scripts/run_grpo_vllm_qwen25vl_gui.sh
 >
 > 1. If you meet **OOM Error**, you can try reduce `-num_generations`
 
-## <img src="./pics/eval.png" width="40" />Evaluation
+## <img src="./assets/eval.png" width="40" />Evaluation
 
 - AITZ
 
-<img src="./pics/results_2.png" width="800" />
+<img src="./assets/results_2.png" width="600" />
 
 We currently give the evaluation codes of the training datasets on src/scripts/llama_factory_test.sh.
 
@@ -170,7 +179,7 @@ python src/eval/aitz_evaluate/test_qwen25vl_aitz_from_json.py
 
 - GeoQA Counting
 
-<img src="./pics/results_1.png" width="800" />
+<img src="./assets/results_1.png" width="600" />
 
 To evaluate on GeoQA and counting, you need to first transform the data format by running the code:
 
