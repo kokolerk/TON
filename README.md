@@ -3,24 +3,15 @@
 <p align="center">
 <h1 align="center"> Think or Not? Selective Reasoning via Reinforcement Learning for Vision-Language Models</h1>
 </p>
+
 <p align="center">
- <a href="https://arxiv.org/abs/2505.16854" target="_blank"><img src="https://img.shields.io/badge/arXiv-2505.16854-red"></a>
-  <a >
-       <img alt="PRs-Welcome" src="https://img.shields.io/badge/PRs-Welcome-red" />
-  	</a>
-   	<a href="https://github.com/kokolerk/TON/stargazers">
-       <img alt="stars" src="https://img.shields.io/github/stars/kokolerk/TON" />
-  	</a>
-  	<a href="https://github.com/kokolerk/TON/network/members">
-       <img alt="FORK" src="https://img.shields.io/github/forks/kokolerk/TON?color=FF8000" />
-  	</a>
-    <a href="https://github.com/kokolerk/TON/issues">
-      <img alt="Issues" src="https://img.shields.io/github/issues/kokolerk/TON?color=0088ff"/>
-    </a>
-    <br />
+  <a href="https://arxiv.org/abs/2505.16854" target="_blank"><img src="https://img.shields.io/badge/arXiv-2505.16854-red"></a>
+  <a href="https://huggingface.co/papers/2505.16854/" target="_blank"><img src="https://img.shields.io/badge/Project-Page-brightgreen"></a>
+  <a href="https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b" target="_blank"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue"></a>
+  <a href="https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b" target="_blank"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-orange"></a>
 </p>
 
-**TL;DR**: We propose TON (Think-Or-Not), an efficient policy optimization method for vision-language models.
+**TON** (Think-Or-Not) - Teach VLMs _when to think_ via Policy Optimization Reinforcement Learning.
 
 <img src="./assets/teaser.png" width="1000" />
 
