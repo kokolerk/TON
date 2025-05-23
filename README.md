@@ -7,9 +7,7 @@
   	<a href="https://img.shields.io/badge/version-v0.1.0-blue">
       <img alt="version" src="https://img.shields.io/badge/version-v0.1.0-blue?color=FF8000?color=009922" />
     </a>
-  <a >
-       <img alt="Status-building" src="https://img.shields.io/badge/Status-building-blue" />
-  	</a>
+ <a href="https://arxiv.org/abs/2505.16854" target="_blank"><img src="https://img.shields.io/badge/arXiv-2505.16854-red"></a>
   <a >
        <img alt="PRs-Welcome" src="https://img.shields.io/badge/PRs-Welcome-red" />
   	</a>
@@ -33,6 +31,7 @@
   <a href="#Evaluation">Evaluation</a>/
 </p>
 </div>
+
 TL;DR: We propose TON (Think-Or-Not), an efficient policy optimization method for vision-language models.
 
 # <img src="./assets/abstract.png" width="40" />Abstract
@@ -50,6 +49,7 @@ Experimental results show that *TON* can *reduce the completion length by up to 
 
 # <img src="./assets/update.png" width="40" />Updates
 
+- 2025-05-23: Our paper is available on [arxiv](https://arxiv.org/abs/2505.16854).
 - 2025-05-19: We update the next-version code, model and data source.
 - 2025-03-28: We release the TON repo.
 
