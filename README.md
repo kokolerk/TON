@@ -11,8 +11,6 @@
   <a href="https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b" target="_blank"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-orange"></a>
 </p>
 
-✏️ TL;DR: **TON (Think-Or-Not)** - Teach multimodal models _When to Think_ via Reinforcement Learning.
-
 <img src="./assets/teaser_new.png" width="1000" />
 
 # <img src="./assets/abstract.png" width="40" />Introduction
