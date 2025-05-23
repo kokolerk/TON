@@ -4,9 +4,6 @@
 <h1 align="center"> Think or Not? Selective Reasoning via Reinforcement Learning for Vision-Language Models</h1>
 </p>
 <p align="center">
-  	<a href="https://img.shields.io/badge/version-v0.1.0-blue">
-      <img alt="version" src="https://img.shields.io/badge/version-v0.1.0-blue?color=FF8000?color=009922" />
-    </a>
  <a href="https://arxiv.org/abs/2505.16854" target="_blank"><img src="https://img.shields.io/badge/arXiv-2505.16854-red"></a>
   <a >
        <img alt="PRs-Welcome" src="https://img.shields.io/badge/PRs-Welcome-red" />
@@ -22,21 +19,12 @@
     </a>
     <br />
 </p>
-<div align="center">
-<p align="center">
-  <a href="#Abstract">Abstract</a>/
-  <a href="#Updates">Updates</a>/
-  <a href="#Resources">Resources</a>/
-  <a href="#Training">Training</a>/
-  <a href="#Evaluation">Evaluation</a>/
-</p>
-</div>
 
 **TL;DR**: We propose TON (Think-Or-Not), an efficient policy optimization method for vision-language models.
 
 <img src="./assets/teaser.png" width="1000" />
 
-# <img src="./assets/abstract.png" width="40" />Abstract
+# <img src="./assets/abstract.png" width="40" />Introduction
 
 Reinforcement Learning (RL) has proven to be an effective post-training strategy for enhancing reasoning in vision–language models (VLMs). Group Relative Policy Optimization (GRPO) is a recent prominent method that encourages models to generate complete reasoning traces before answering, leading to increased token usage and computational cost. Inspired by the human-like thinking process—where people skip reasoning for easy questions but think carefully when needed—we explore how to enable VLMs to first decide *when reasoning is necessary*. To realize this, we propose *TON*, a two-stage training strategy:
 
