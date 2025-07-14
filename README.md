@@ -186,3 +186,19 @@ python src/eval/test_qwen25vl_counting_superclevr.py
 # Acknowledgements
 
 We sincerely thank [DeepSeek](https://github.com/deepseek-ai/DeepSeek-R1), [Open-R1](https://github.com/huggingface/open-r1), [QwenVL](https://github.com/QwenLM/Qwen2.5-VL), [Open-R1-Multimodal](https://github.com/EvolvingLMMs-Lab/open-r1-multimodal), [R1-V](https://github.com/Deep-Agent/R1-V?tab=readme-ov-file) (our initial codebase). We sincerely thank Dongchi Huang for his invaluable guidance on the code and for providing essential computational resources. We also appreciate Binghui Xie’s insightful discussion on topic selection and idea suggestions. Additionally, we are grateful to Qiguang Chen and Yuxuan Wan for their thoughtful and constructive feedback on this paper. Finally, we extend our gratitude to Xiaojun Guo and Qixun Wang for their valuable advice on visual reasoning and the GRPO series methods.
+
+# Citation
+
+If you find this work useful, please give us a free cite:
+
+```
+@misc{wang2025think,
+    title={Think or Not? Selective Reasoning via Reinforcement Learning for Vision-Language Models},
+    author={Jiaqi Wang and Kevin Qinghong Lin and James Cheng and Mike Zheng Shou},
+    year={2025},
+    eprint={2505.16854},
+    archivePrefix={arXiv},
+    primaryClass={cs.AI}
+}
+```
+
