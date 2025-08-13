@@ -28,12 +28,12 @@ class AITZDataset(torch.utils.data.Dataset):
     'web_shopping': '{}/web_shopping',
     }
 
-    def __init__(self, mode='init', split="test", domain='general', data_dir="/export3/huangdongchi/hdc_debug/data/test/general_aitz_reprocess2_short.json", ratio=1.0, double_sample=False) -> None:
+    def __init__(self, mode='init', split="train", data_dir="dataset/android_in_the_zoo/aitz_reprocess2.json", ratio=1.0, double_sample=False) -> None:
         self.ratio = ratio
         self.double_sample = double_sample
         self.data_dir = data_dir
         # change to your local image directory
-        self.image_dir = f'/aitz_data/android_in_the_zoo/{split}'
+        self.image_dir = f'dataset/android_in_the_zoo/{split}'
         self.mode = mode
         self.episode_data = self._load_data_()
         self.data = self._split_to_steps_(self.episode_data, self.mode)

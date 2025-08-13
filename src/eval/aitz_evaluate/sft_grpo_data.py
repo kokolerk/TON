@@ -17,8 +17,6 @@ def save_data_to_json(data, file_path):
 def convert_format_to_sft(dataset, mode):
     
     new_data = []
-    # for episode in data:
-    # breakpoint()
     for data in dataset:
         # breakpoint()
         image_path = data['image_full_path']
@@ -62,7 +60,7 @@ def convert_format_to_sft(dataset, mode):
         new_data.append(new_step)
     return new_data
 
-def convert_format_to_grpo(dataset, mode):
+def convert_format_to_grpo(dataset):
     new_dataset=[]
     print(len(dataset))
     
@@ -90,8 +88,7 @@ def convert_format_to_grpo(dataset, mode):
 
 if __name__ == "__main__":
     mode = 'think'
-    domain = 'google_apps'
-    AITZDataset = AITZDataset(split="test", mode=mode, domain=domain, data_dir=f"/export3/huangdongchi/hdc_debug/data/train/train_general_aitz_reprocess2.json")
+    AITZDataset = AITZDataset(split="test", mode=mode, data_dir=f"dataset/android_in_the_zoo/aitz_reprocess2.json")
     
     # preprocess the data
     process_path = 'your process path'
@@ -100,12 +97,12 @@ if __name__ == "__main__":
     
     # sft format
     sft_data = convert_format_to_sft(AITZDataset, mode='two_mode')
-    new_sft_data_path = f'train_data/sft/train_two_data_50.json'
+    new_sft_data_path = f'dataset/android_in_the_zoo/train_data/aitz_sft.json'
     save_data_to_json(sft_data, new_sft_data_path)
     
     ## grpo format
-    # grpo_data = convert_format_to_grpo(AITZDataset,mode=mode)
-    # new_grpo_data_path = 'train_data/grpo/train_grpo_data_mix.jsonl'
-    # save_dataset_jsonl(grpo_data, new_grpo_data_path)
+    grpo_data = convert_format_to_grpo(AITZDataset)
+    new_grpo_data_path = 'dataset/android_in_the_zoo/train_data/aitz_grpo.jsonl'
+    save_dataset_jsonl(grpo_data, new_grpo_data_path)
     
     

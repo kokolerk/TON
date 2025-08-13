@@ -1,8 +1,7 @@
-
-
 <p align="center">
 <h1 align="center"> Think or Not? Selective Reasoning via Reinforcement Learning for Vision-Language Models</h1>
 </p>
+
 
 <p align="center">
   <a href="https://arxiv.org/abs/2505.16854" target="_blank"><img src="https://img.shields.io/badge/arXiv-2505.16854-red"></a>
@@ -10,6 +9,7 @@
   <a href="https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b" target="_blank"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue"></a>
   <a href="https://huggingface.co/collections/kolerk/ton-682ad9038395c21e228a645b" target="_blank"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-orange"></a>
 </p>
+
 
 <img src="./assets/teaser_new.png" width="1000" />
 
@@ -26,6 +26,7 @@ Experimental results show that *TON* can *reduce the completion length by up to 
 
 
 # <img src="./assets/update.png" width="40" />Updates
+
 - 2025-06-16: 🔥🔥🔥Our paper is accepted on [ICML 2025 workshop EXAIT](https://exait-workshop.github.io/)!!!
 - 2025-05-23: Our paper is available on [arxiv](https://arxiv.org/abs/2505.16854).
 - 2025-05-19: We update the next-version code, model and data source.
@@ -57,9 +58,8 @@ We release our training datasets both in huggingface and modelscope.
 
 - Supported Evaluations
 
-1. SuperCLEVR-200: Item Counting Problems
-2. AITZ: Mobile Agent Navigation Problems
-3. GeoQA-Test: Geometry Reasoning
+1. AITZ: Mobile Agent Navigation Problems
+2. GeoQA-Test: Geometry Reasoning
 
 ## <img src="./assets/training.png" width="40" />Training
 
@@ -69,7 +69,7 @@ The comparsion of the completion length and skip think ratio during the training
 
 <img src="./assets/skip.png" width="600" />
 
-1. Set up the environments:
+## 1. Set up the environments:
 
 ```
 conda create -n r1-v python=3.11
@@ -79,41 +79,82 @@ conda activate r1-v
 bash setup.sh
 ```
 
-1. Download the training datasets:
+## 2. Download the training datasets:
 
-We submit our SFT and GRPO stage raw data in [TON](https://modelscope.cn/collections/TON-e8836d13bd564e).  Take the AITZ dataset for example.
+1. **Raw datasets:** download and unzip the raw data of three training datasets into the `dataset` folder and one evaluation benchmark into the `src/eval` folder with the following links. 
 
-- First, download the data
+| datasets                    | referred download links                                      |
+| --------------------------- | ------------------------------------------------------------ |
+| AITZ                        | https://drive.usercontent.google.com/download?id=12xOV2m62fBUFLhMcWIsFiC6zwV7a2RhI&export=download&authuser=0 |
+| GeoQA                       | https://huggingface.co/datasets/leonardPKU/GEOQA_R1V_Train_8K/viewer |
+| CLEVR (item couting)        | https://huggingface.co/datasets/leonardPKU/clevr_cogen_a_train |
+| Super-CLEVR (item counting) | The official dataset link is 404 error now 😭.                |
+| GeoQA-test                  | https://huggingface.co/datasets/Luckyjhg/Geo170K             |
+
+- download GeoQA-test
+
+```
+cd src/eval
+git lfs install
+git clone https://huggingface.co/datasets/Luckyjhg/Geo170K
+cd Geo170K
+unzip images.zip
+```
+
+2. **Preprocessed SFT datasets**: We submit our SFT stage datasets by the random thought dropout ratio 0.5 in [TON](https://modelscope.cn/collections/TON-e8836d13bd564e).  Run the following code to download them:
 
 ```
 modelscope download --dataset wjqkoko/TON-AITZ-SFT ----local_dir <your local path>
+modelscope download --dataset wjqkoko/TON-Math-SFT ----local_dir <your local path>
 ```
 
-Then unzip the dataset by run:  `unzip android_in_the_zoo.zip`
+## 3. Prepare SFT and GRPO training json datasets
 
-- Second, change the JSONs in different directories to a single JSON
+1. AITZ
+
+- Preprocess the train split, general domain of AITZ
 
 ```
 python src/eval/aitz_evaluate/process_data.py
 ```
 
-- Third, change the process data to the SFT format or the GRPO format
+- change the process data to the SFT and GRPO format of AITZ in `dataset` folder
 
 ```
 python src/eval/aitz_evaluate/sft_grpo_data.py
 ```
 
-We also provide the aitz_sft.json in the dataset, you can directly use it for SFT and only transform the data to the GRP format.
+TODO: CLEVR and GeoQA
 
-1. Download the model:
+## 4. Download the model
 
-Our repo currently supports Qwen2.5-VL-3B/7B, which supports the mobile use and computer use functions.
+Supported models Qwen2.5-VL-3B/7B
 
-We also provide our models, which have been well-trained on Count, AITZ, and GeoQA in [TON](https://modelscope.cn/collections/TON-e8836d13bd564e).
+```
+modelscope download --model Qwen/Qwen2.5-VL-7B-Instruct --local_dir <your local path>
+modelscope download --model Qwen/Qwen2.5-VL-3B-Instruct --local_dir <your local path>
+```
 
-1. Train the model with GRPO
+We also provide our models well-trained on AITZ, CLEVR, and GeoQA by our method TON in [TON](https://modelscope.cn/collections/TON-e8836d13bd564e).
 
-The training command is as follows: you need to modify it by your local model path (QWEN_PATH), dataset path (HF_DATASET), and output save path(OUTPUT_DIR). We also support wandb to monitor the training process by setting the run name (RUN_NAME).
+```
+modelscope download --model wjqkoko/TON-7B-Math --local_dir <your local path>
+modelscope download --model wjqkoko/TON-3B-Math --local_dir <your local path>
+modelscope download --model wjqkoko/TON-3B-AITZ --local_dir <your local path>
+modelscope download --model wjqkoko/TON-3B-CLEVR --local_dir <your local path>
+```
+
+## 5. Train the Qwen2.5VL by our TON
+
+1. SFT stage: We implement the sft stage by [Llama-factory](https://github.com/hiyouga/LLaMA-Factory). Thanks the comprehensive tools. 😊
+
+2. GRPO stage: The training command is as follows: you need to modify it by 
+
+- your local model path (QWEN_PATH), 
+- dataset path (HF_DATASET), 
+- and output save path(OUTPUT_DIR).
+
+We also support wandb to monitor the training process by setting the run name (RUN_NAME).
 
 For Counting/GeoQA
 
@@ -186,3 +227,18 @@ python src/eval/test_qwen25vl_counting_superclevr.py
 # Acknowledgements
 
 We sincerely thank [DeepSeek](https://github.com/deepseek-ai/DeepSeek-R1), [Open-R1](https://github.com/huggingface/open-r1), [QwenVL](https://github.com/QwenLM/Qwen2.5-VL), [Open-R1-Multimodal](https://github.com/EvolvingLMMs-Lab/open-r1-multimodal), [R1-V](https://github.com/Deep-Agent/R1-V?tab=readme-ov-file) (our initial codebase). We sincerely thank Dongchi Huang for his invaluable guidance on the code and for providing essential computational resources. We also appreciate Binghui Xie’s insightful discussion on topic selection and idea suggestions. Additionally, we are grateful to Qiguang Chen and Yuxuan Wan for their thoughtful and constructive feedback on this paper. Finally, we extend our gratitude to Xiaojun Guo and Qixun Wang for their valuable advice on visual reasoning and the GRPO series methods.
+
+# Citation
+
+If you find this work useful, please give us a free cite:
+
+```
+@misc{wang2025think,
+    title={Think or Not? Selective Reasoning via Reinforcement Learning for Vision-Language Models},
+    author={Jiaqi Wang and Kevin Qinghong Lin and James Cheng and Mike Zheng Shou},
+    year={2025},
+    eprint={2505.16854},
+    archivePrefix={arXiv},
+    primaryClass={cs.AI}
+}
+```

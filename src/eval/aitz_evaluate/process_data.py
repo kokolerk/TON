@@ -222,11 +222,11 @@ def load_jsonl(data_path):
 
 
 if __name__ == "__main__":
-    data_path = 'aitz_data/android_in_the_zoo/test/single' 
+    data_path = 'dataset/android_in_the_zoo/train/general' 
     general_aitz = load_json_from_directory(data_path)
-    # print(len(general_aitz))
+    print(len(general_aitz))
     save_path = 'preprocess save directory'
-    save_data_to_json(general_aitz, os.path.join(save_path, 'aitz_reprocess2.json'))
+    save_data_to_json(general_aitz, os.path.join(save_path, 'aitz_reprocess.json'))
     
     '''
     attention to the train/train splits
@@ -235,7 +235,7 @@ if __name__ == "__main__":
     # save_data_to_json(general_aitz, os.path.join(save_path, 'train_general_aitz.json'))
     
     # process format
-    # new_datasets = reprocess_aitz_data_from_json_string_01(os.path.join(save_path, 'aitz.json'))
-    # save_data_to_json(new_datasets, os.path.join(save_path, 'aitz_reprocess2.json'))
+    new_datasets = reprocess_aitz_data_from_json_string_01(os.path.join(save_path, 'aitz_preprocess.json'))
+    save_data_to_json(new_datasets, os.path.join(save_path, 'aitz_reprocess2.json'))
     
     
