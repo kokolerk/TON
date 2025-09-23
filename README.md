@@ -27,7 +27,8 @@ Experimental results show that *TON* can *reduce the completion length by up to 
 
 # <img src="./assets/update.png" width="40" />Updates
 
-- 2025-06-16: 🔥🔥🔥Our paper is accepted on [ICML 2025 workshop EXAIT](https://exait-workshop.github.io/)!!!
+- 2025-09-23: 🔥🔥🔥Our paper is accepted on NeurIPS 2025!!!
+- 2025-06-16: 🔥Our paper is accepted on [ICML 2025 workshop EXAIT](https://exait-workshop.github.io/).
 - 2025-05-23: Our paper is available on [arxiv](https://arxiv.org/abs/2505.16854).
 - 2025-05-19: We update the next-version code, model and data source.
 - 2025-03-28: We release the TON repo.
