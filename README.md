@@ -13,6 +13,14 @@
 
 <img src="./assets/teaser_new.png" width="1000" />
 
+# <img src="./assets/update.png" width="40" />Updates
+
+- 2025-09-23: 🔥🔥🔥Our paper is accepted on NeurIPS 2025!!!
+- 2025-06-16: 🔥Our paper is accepted on [ICML 2025 workshop EXAIT](https://exait-workshop.github.io/).
+- 2025-05-23: Our paper is available on [arxiv](https://arxiv.org/abs/2505.16854).
+- 2025-05-19: We update the next-version code, model and data source.
+- 2025-03-28: We release the TON repo.
+
 # <img src="./assets/abstract.png" width="40" />Introduction
 
 Reinforcement Learning (RL) has proven to be an effective post-training strategy for enhancing reasoning in vision–language models (VLMs). Group Relative Policy Optimization (GRPO) is a recent prominent method that encourages models to generate complete reasoning traces before answering, leading to increased token usage and computational cost. Inspired by the human-like thinking process—where people skip reasoning for easy questions but think carefully when needed—we explore how to enable VLMs to first decide *when reasoning is necessary*. To realize this, we propose *TON*, a two-stage training strategy:
@@ -23,15 +31,6 @@ Reinforcement Learning (RL) has proven to be an effective post-training strategy
 Experimental results show that *TON* can *reduce the completion length by up to **90%** compared to vanilla GRPO, without sacrificing performance or even improving it*. Further evaluations across diverse vision-language tasks—covering a range of reasoning difficulties under both 3B and 7B models—consistently reveal that the *model progressively learns to bypass unnecessary reasoning steps as training advances*. These findings shed light on the path toward human-like reasoning patterns in reinforcement learning approaches.
 
 <img src="./assets/teaser.png" width="1000" />
-
-
-# <img src="./assets/update.png" width="40" />Updates
-
-- 2025-09-23: 🔥🔥🔥Our paper is accepted on NeurIPS 2025!!!
-- 2025-06-16: 🔥Our paper is accepted on [ICML 2025 workshop EXAIT](https://exait-workshop.github.io/).
-- 2025-05-23: Our paper is available on [arxiv](https://arxiv.org/abs/2505.16854).
-- 2025-05-19: We update the next-version code, model and data source.
-- 2025-03-28: We release the TON repo.
 
 # <img src="./assets/resource.png" width="40" />Resources 
 
